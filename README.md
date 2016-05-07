@@ -8,6 +8,7 @@ Symfony обертка для http://ludwigbistronovsky.ru/tools/e/
 
 Это код из sample.html:
 
+<pre>
 <div>PM sample</div>
     <script>
         var prefpath = './'; // это нужно для того, чтобы правильно подгружались темплейты и все такое
@@ -23,9 +24,9 @@ Symfony обертка для http://ludwigbistronovsky.ru/tools/e/
         <div ng-include="templates.index"></div>
     </section>
 </div>
-
+</pre>
 
 Если остались вопросы
 ---------------------
 
-Пишите: a.aleksu@gmail.com
+Пиши: a.aleksu@gmail.com
