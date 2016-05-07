@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/_exsps.css" />
+</head>
+<body>
+<div style="margin: 0 auto;width:80%;">
+<div>PM sample</div>
+    <script>
+    var prefpath = './';
+    </script>
+    <script src="app/require.js"></script>
+    <script src="app/app.js"></script>
+    <span ng-controller="rootCtrl"></span>
+    <section data-ui-view on-scroll>
+        <div ng-include="templates.index"></div>
+    </section>
+</div>
+</body>
+</html>

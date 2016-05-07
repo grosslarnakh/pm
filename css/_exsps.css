@@ -1,0 +1,332 @@
+@import url(notice.css);
+.modal {
+  /*    background: #666;
+      opacity:.6;
+  */ }
+  .modal.show {
+    display: block; }
+  .modal .modal-wrapper {
+    background: #666;
+    bottom: 0;
+    left: 0;
+    opacity: .7;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%; }
+
+/*@grid-gutter-width: 0px;*/
+label.normal_label {
+  font-weight: normal; }
+
+.exsps_header {
+  font-size: 85%;
+  color: #ccc; }
+
+.up {
+  padding-top: 30px; }
+
+.down {
+  padding-bottom: 50px; }
+
+.exsps_date {
+  color: #333366;
+  border-left: 1px solid #ccc;
+  min-height: 50px;
+  padding-left: 4px;
+  font-size: 85%; }
+
+.exsps_start_date {
+  color: #ccc;
+  padding-bottom: 20px;
+  min-height: 50px;
+  padding-left: 4px; }
+
+.exsps_start_date_label {
+  color: #ccc;
+  padding-bottom: 20px;
+  min-height: 50px;
+  padding-left: 4px;
+  text-align: right;
+  width: 85px; }
+
+.exsps_start_date_value {
+  white-space: nowrap; }
+
+.exsps_week {
+  color: black;
+  font-size: 85%;
+  border-left: 1px solid #ccc;
+  padding-left: 4px;
+  padding-bottom: 10px; }
+
+.exsps_week_up {
+  color: #ccc;
+  font-size: 85%;
+  border-left: 1px solid #ccc;
+  padding-left: 4px;
+  min-height: 60px; }
+
+.exsps_week_title {
+  float: left;
+  color: #ccc;
+  font-size: 85%;
+  text-align: right;
+  width: 100px; }
+
+.exsps_total {
+  color: #ccc; }
+
+.exsps_value {
+  color: #000; }
+
+.exsps_value_name {
+  font-style: italic;
+  font-size: 85%;
+  color: #999; }
+
+.exsps_list_name {
+  font-style: italic;
+  color: #999; }
+
+.exsps_week_flow {
+  /* padding-bottom: 20px; */ }
+
+.expense.daily, .income.daily {
+  padding-left: 0px; }
+
+.expense.regular.weekly, .income.regular.weekly {
+  padding-left: 50px; }
+
+.expense.regular.monthly, .income.regular.monthly {
+  padding-left: 100px; }
+
+.ir_flow_true_d1, .ir_flow_true.day {
+  padding-left: 0px; }
+
+.ir_flow_true_w1, .ir_flow_true_week {
+  padding-left: 100px; }
+
+.ir_flow_true_m1, .ir_flow_true_month {
+  padding-left: 200px; }
+
+.ir_flow_false_m1, .ir_flow_false_month {
+  padding-left: 300px; }
+
+.ir_income_true_d1, .ir_income_true_day {
+  padding-right: 0px;
+  text-align: right; }
+
+.ir_income_true_w1, .ir_income_true_week {
+  padding-right: 50px;
+  text-align: right; }
+
+.ir_income_true_m1, .ir_income_true_month {
+  padding-right: 150px;
+  text-align: right; }
+
+.ir_income_false_m1, .ir_income_false_month {
+  padding-right: 200px;
+  text-align: right; }
+
+.income {
+  text-align: right; }
+
+.exsps_divider {
+  border-bottom: solid 1px #fff; }
+
+.exsps_new_week {
+  padding: 20px 0 20px 0; }
+
+ul.exsps-li {
+  margin: 0 0 0px 0px; }
+
+li.exsps-li {
+  list-style-type: none;
+  margin: 10px 0px 10px -40px; }
+
+.exsps-table th, .exsps-table td {
+  border-top: none; }
+
+.exsps_intro {
+  font-size: 20px; }
+
+a {
+  text-decoration: underline; }
+
+a:visited {
+  color: #551a8b; }
+
+a.pseudo:link, a.pseudo:visited {
+  color: #428bca;
+  text-decoration: none;
+  border-bottom: 1px dotted #428bca; }
+
+a.pseudo:hover {
+  color: red;
+  text-decoration: none;
+  border-bottom: 1px dotted red; }
+
+.strike {
+  text-decoration: line-through; }
+
+div {
+  /* border: 1px solid red; */ }
+
+.lightgrey {
+  color: #ccc; }
+
+.exsps_tab {
+  color: black; }
+
+.nav-tabs li.active a {
+  color: black;
+  text-decoration: none; }
+
+.list_item_row {
+  padding: 0 0 20px 0; }
+
+.exsps_list_item {
+  padding: 0 0 10px 0; }
+
+.exsps_label {
+  border-color: grey; }
+
+.exsps_label:hover {
+  /*background:!inherit;*/
+  border-color: #000;
+  box-shadow: 1px 2px 1px #ccc; }
+
+.exsps_label.active {
+  border-color: #000;
+  box-shadow: 1px 2px 1px #ccc; }
+
+.exsps_label_0, .exsps_label_0.active, .exsps_label_0.hover {
+  background-color: white;
+  color: black;
+  font-weight: normal; }
+
+.exsps_label_1, .exsps_label_1.active, .exsps_label_1.hover {
+  background-color: #bfaf90;
+  font-weight: normal; }
+
+.exsps_label_2, .exsps_label_2.active, .exsps_label_2.hover {
+  background-color: #9ebf9d;
+  font-weight: normal; }
+
+.exsps_label_3, .exsps_label_3.active, .exsps_label_3.hover {
+  background-color: #7da9bf;
+  font-weight: normal; }
+
+.exsps_label_4, .exsps_label_4.active, .exsps_label_4.hover {
+  background-color: #bf757a;
+  font-weight: normal; }
+
+.exsps_label_5, .exsps_label_5.active, .exsps_label_5.hover {
+  background-color: #bf7fb6;
+  font-weight: normal; }
+
+.exsps_label_6, .exsps_label_6.active, .exsps_label_6.hover {
+  background-color: #b7bf67;
+  font-weight: normal; }
+
+.exsps_label_7, .exsps_label_7.active, .exsps_label_7.hover {
+  background-color: #000000;
+  font-weight: normal; }
+
+.exsps_label_8, .exsps_label_8.active, .exsps_label_8.hover {
+  background-color: #879c9d;
+  font-weight: normal; }
+
+.exsps_label_9, .exsps_label_9.active, .exsps_label_9.hover {
+  background-color: #7188bf;
+  font-weight: normal; }
+
+.exsps_label_10, .exsps_label_10.active, .exsps_label_10.hover {
+  background-color: #f4ac7f;
+  font-weight: normal; }
+
+#export_block label.light_label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  font-weight: noraml;
+  user-select: none; }
+
+.middle_column {
+  padding-left: 45%; }
+
+.month_first_week .week_title {
+  color: #000;
+  padding: 2px 4px; }
+
+form#payment {
+  padding: 10px 0; }
+  form#payment div.sum_input_block {
+    width: 100%; }
+    form#payment div.sum_input_block input#sum {
+      cursor: pointer;
+      margin-left: 5px; }
+    form#payment div.sum_input_block ul.sum_expression_suggestions {
+      background: #fff;
+      box-shadow: 0 0 5px #ccc;
+      list-style-type: none;
+      margin-left: 5px;
+      padding: 5px;
+      position: absolute;
+      width: 20%;
+      z-index: 10; }
+      form#payment div.sum_input_block ul.sum_expression_suggestions li {
+        padding: 3px; }
+        form#payment div.sum_input_block ul.sum_expression_suggestions li.selected {
+          background: #ccc; }
+    form#payment div.sum_input_block > div {
+      width: 70%; }
+      form#payment div.sum_input_block > div input#sum {
+        display: inline-block;
+        width: 20%; }
+  form#payment .regularity {
+    padding-left: 165px; }
+    form#payment .regularity .regularity_item {
+      float: left; }
+      form#payment .regularity .regularity_item.single_payment {
+        margin-left: 20px; }
+
+.fake_expense_row_block {
+  width: 100px; }
+
+.payment_tabs ul.nav {
+  height: 48px; }
+
+#toolbar, .toolbar {
+  background: #eee;
+  border-radius: 6px;
+  float: left;
+  height: 60px;
+  padding: 15px;
+  width: 100%; }
+  #toolbar.autosave_enabled, .toolbar.autosave_enabled {
+    background: #e8fff5; }
+  #toolbar.fixed, .toolbar.fixed {
+    filter: alpha(opacity=70);
+    opacity: .7;
+    position: fixed;
+    top: 5px;
+    width: 95%;
+    z-index: 1; }
+  #toolbar .toolbar_row, .toolbar .toolbar_row {
+    float: left; }
+    #toolbar .toolbar_row.export_block, .toolbar .toolbar_row.export_block {
+      float: right; }
+      #toolbar .toolbar_row.export_block #export_block, .toolbar .toolbar_row.export_block #export_block {
+        width: 240px; }
+        #toolbar .toolbar_row.export_block #export_block #autosave_block, .toolbar .toolbar_row.export_block #export_block #autosave_block {
+          float: left;
+          padding-top: 5px; }
+        #toolbar .toolbar_row.export_block #export_block #cleanup_block, .toolbar .toolbar_row.export_block #export_block #cleanup_block {
+          float: left;
+          padding-left: 10px;
+          width: 90px; }

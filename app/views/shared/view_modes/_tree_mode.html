@@ -1,0 +1,123 @@
+<div id="tree_view_mode" class="col-md-10" ng-show="prefs.viewMode == 'table'">
+    <div class="row exsps_header up down">
+        <div class="col-md-1">
+            <span ng-show="payments.length > 0">
+            Баланс
+            </span>
+        </div>
+        <div class="col-md-4 income">
+            <span ng-show="incomes_num > 0">Доходы</span>
+        </div>
+
+        <!--
+        <div class="col-md-2">
+            <span ng-show="prefs.IncomesOrdinary > 0">
+            Разовые доходы
+            </span>
+        </div>
+        <div class="col-md-2">
+            <span ng-show="prefs.IncomesRegular > 0">
+            Постоянные доходы
+            </span>
+        </div>
+        -->
+        <div class="col-md-1"></div><div class="col-md-1 exsps_week_flow" ></div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <span ng-show="expenses_num > 0">
+                    Расходы
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row intro">
+        <div class="col-md-1">
+            <a class="pseudo" href="javascript:void(0)" ng-click="modals.startValue.open()">
+                <nobr>
+                    <span ng-bind="decimalsOutput(prefs.startValue)" />
+                </nobr>
+            </a>
+            <br />
+            <span class="exsps_value_name name">Начальный баланс</span>
+        </div>
+        <!-- div class="col-md-2">&nbsp;</div>
+        <div class="col-md-2">&nbsp;</div -->
+        <div class="middle_column">
+            <div class="col-md-1 exsps_start_date_label"><span class="exsps_value_name name">Начало</span></div>
+            <div class="col-md-1 exsps_start_date">
+                <a class="pseudo" href="javascript:void(0)" ng-click="modals.startDate.open()">
+                    <span ng-bind="prefs.startDate | date:'d MMM yy'" class="exsps_start_date_value" />
+                </a>
+            </div>
+        </div>
+        <div class="col-md-5">
+
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+
+        </div>
+    </div>
+    <div class="" ng-repeat="week in weeks" ng-class="{ month_first_week: week.first_in_month }">
+        <div class="row exsps_week_flow">
+            <div class="col-md-1">&nbsp;</div>
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-1 exsps_week_title">
+                <span class="week_title">Неделя&nbsp;{{ $index + 1 }}</span>
+            </div>
+            <div class="col-md-1 exsps_week_up" >
+                <span class="week_title">
+                    <nobr> {{ week.first_day | date: 'd MMM' }}</nobr>
+                </span>
+            </div>
+        </div>
+        <!-- week expenses -->
+        <div class="week_day" ng-repeat="day in week.days">
+            <div class="week_expense row exsps_week_flow" ng-repeat="payment in week.payments">
+                <div class="day_payment" ng-if="payment.belongs_to_day(day, week)">
+                    <div class="col-xs-1 exsps_total small">
+                        <span>
+                            <nobr class="expense_sum" data-sum="{{ payment.sum }}"></nobr>
+                        </span>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="expense payment" ng-if="payment.sum > 0" ng-class="{ regular: payment.regular, casual: payment.casual, monthly: payment.monthly, weekly: payment.weekly }">
+                            <div>
+                                <nobr>
+                                <a href="javascript:void(0)" class="exsps_value pseudo {{ payment.index }}" ng-click="modals.add.open(payment)">&plus;{{ payment.sum }}</a>
+                                </nobr>&nbsp;<span class="label label-default exsps_label_{{ payment.label }}">{{ payment.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-1 small" style="width:100px;"></div>
+                    <div class="col-xs-1 exsps_date small">
+                        <span class="day_date">
+                            {{ day.date | date: 'd MMM' }}
+                        </span>
+                    </div>
+                    <div class="col-xs-5" style="width:auto;">
+                        <div class="expense payment" ng-if="payment.sum < 0" ng-class="{ regular: payment.regular, casual: payment.casual, monthly: payment.monthly, weekly: payment.weekly }">
+                            <div>
+                                <nobr>
+                                <a href="javascript:void(0)" class="exsps_value pseudo {{ payment.index }}" ng-click="modals.add.open(payment)">{{ payment.sum }}</a>
+                                </nobr>&nbsp;<span class="label label-default exsps_label_{{ payment.label }}">{{ payment.name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end weeks expenses -->
+
+    </div>
+    <div class="row exsps_header up down">
+        <div class="col-md-1"></div>
+        <div class="col-md-4 income"></div>
+        <div class="col-md-5">
+            <a href="javascript:void(0)" class="pseudo" ng-click="addWeeks()">Еще 4 недели</a>
+        </div>
+    </div>
+</div>

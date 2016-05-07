@@ -1,0 +1,13 @@
+.notice {
+    background: #ffffcc;
+    border:1px solid #fc6;
+    border-radius: 3px;
+    box-shadow: #ccc 1px 2px 3px;
+    color:#666;
+    float:left;
+    left:40%;
+    padding:3px 7px;
+    position:fixed;
+    top:20%;
+    z-index:12;
+}

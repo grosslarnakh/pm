@@ -1,0 +1,41 @@
+<!--
+    <div ng-repeat="(year,yearWeeks) in yearsWeeks">
+        <div ng-repeat="(weekNum,week) in yearWeeks">
+            <div class="row exsps_week_flow">
+                <div class="col-md-1">&nbsp;</div>
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-1 exsps_week_title">
+                    <span>Неделя&nbsp;{{week.num}}</span>
+                </div>
+
+
+                <div class="col-md-1 exsps_week_up" ><span><nobr> {{week.dayFirst | date: 'd MMM'}}</nobr></span></div>
+            </div>
+
+
+            <div class="row exsps_week_flow" ng-repeat="item in week.flows">
+                <div class="col-md-1 exsps_total small">
+                      <span ng-show="(prefs.FlowsOrdinary > 0) || (prefs.FlowsRegular > 0) || (prefs.IncomesOrdinary > 0) || (prefs.IncomesRegular > 0)">
+                        <nobr ng-bind="decimalsOutput(item.total)" />
+                      </span>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="ir_{{item.type}}_{{item.is_regular}}_{{item.regular_period}}" ng-show="(item.type == 'income')">
+                        <nobr><a href="javascript:void(0)" class="exsps_value pseudo {{ item.uuid }}" ng-bind="(item.type == 'income') ? '&plus;'+decimalsOutput(item.value) : ''" ng-click="modals.add.open(item.uuid)"></a></nobr>&nbsp;<span class="label label-default exsps_label_{{item.itemLabel}}" ng-bind="(item.type == 'income') ? item.name : ''"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-1 small"></div>
+                <div class="col-md-1 exsps_date small"><span ng-hide="!HaveNewCurrentDate(item.date)" ng-bind="item.date | date: 'd MMM'" /></div>
+
+                <div class="col-md-5">
+                        <div class="ir_{{item.type}}_{{item.is_regular}}_{{item.regular_period}}" ng-show="(item.type == 'flow')">
+                            <nobr><a href="javascript:void(0)" class="exsps_value pseudo {{ item.uuid }}" ng-bind="(item.type == 'flow') ? '&minus;'+decimalsOutput(item.value) : ''" ng-click="modals.add.open(item.uuid)"></a></nobr>&nbsp;<span class="label label-default exsps_label_{{item.itemLabel}}" ng-bind="(item.type == 'flow') ? item.name : ''"></span>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+-->

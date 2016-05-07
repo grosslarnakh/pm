@@ -1,0 +1,33 @@
+{
+    "name": "ldwg/pm",
+    "description": "Prognoz-molniya",
+    "keywords": [],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ludwig Bistronovsky",
+            "email": "ludwig@ludwigbistronovsky.ru",
+            "role": "developer"
+        },
+        {
+            "name": "Valery Yatsko",
+            "email": "yatsko@artlebedev.ru",
+            "role": "developer"
+        },
+        {
+            "name": "Alex Anisimov",
+            "email": "a.aleksu@gmail.com",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "Ldwg\\PMBundle\\": ""
+        }
+    }
+}

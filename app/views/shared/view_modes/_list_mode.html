@@ -1,0 +1,99 @@
+<div id="list_view_mode" class="col-md-10" ng-show="prefs.viewMode == 'list'">
+    <div class="row list_item_row exsps_header up down">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <div class="row exsps_list_item">
+                <div class="col-md-5"><span>Дата</span></div>
+                <div class="col-md-3"><span>Сумма</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="row list_item_row">
+        <div class="col-md-3"><span>Начальные данные</span></div>
+        <div class="col-md-9">
+            <div class="row exsps_list_item">
+                <div class="col-md-5"><a class="pseudo" href="javascript:void(0)" ng-click="modals.startDate.open()"><span ng-bind="prefs.startDate | date:'d MMM yy'" /></a></div>
+                <div class="col-md-3"><a class="pseudo" href="javascript:void(0)" ng-click="modals.startValue.open()"><span ng-bind="decimalsOutput(prefs.startValue)" /></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="row list_item_row" ng-show="casual_incomes_num > 0">
+        <div class="col-md-3"><span>Разовые доходы</span></div>
+        <div class="col-md-9">
+            <div ng-repeat="payment in payments" class="row exsps_list_item" ng-if="payment.casual && payment.sum > 0">
+                <div class="col-md-5">
+                    <span>{{ payment.date | date : "d MMM yy" }}</span>
+                </div>
+                <div class="col-md-3"><a href="javascript:void(0)" class="exsps_value pseudo" ng-bind="'&plus;'+decimalsOutput(payment.sum)" ng-click="modals.add.open(payment)"></a></div>
+                <div class="col-md-3"><span class="label label-default exsps_label_{{ payment.label }}">{{ payment.name }}</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="row list_item_row" ng-show="regular_incomes_num > 0">
+        <div class="col-md-3"><span>Постоянные доходы</span></div>
+        <div class="col-md-9">
+            <div ng-repeat="payment in payments" class="row exsps_list_item" ng-show="payment.regular && payment.sum > 0">
+                <div class="col-md-5">
+                    <span ng-show="payment.daily">Ежедневно</span>
+                    <span ng-show="payment.monthly">Раз в месяц по {{ payment.regular_date }} числам</span>
+                    <span ng-show="payment.weekly">Раз в неделю по {{ payment.week_day_name() }}</span>
+                </div>
+                <div class="col-md-3"><a href="javascript:void(0)" class="exsps_value pseudo" ng-bind="'&plus;'+decimalsOutput(payment.sum)" ng-click="modals.add.open(payment)"></a></div>
+                <div class="col-md-3"><span class="label label-default exsps_label_{{ payment.label }}">{{ payment.name }}</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row list_item_row" ng-show="casual_expenses_num > 0">
+        <div class="col-md-3"><span>Разовые расходы</span></div>
+        <div class="col-md-9">
+                <div ng-repeat="payment in payments" class="row exsps_list_item" ng-show="payment.casual && payment.sum < 0">
+                    <div class="col-md-5">
+                        <span>{{ payment.date | date : "d MMM yy" }}</span>  
+                    </div>
+                    <div class="col-md-3"><a href="javascript:void(0)" class="exsps_value pseudo" ng-bind="payment.sum" ng-click="modals.add.open(payment)"></a></div>
+                    <div class="col-md-3"><span class="label label-default exsps_label_{{ payment.label }}">{{ payment.name }}</span></div>
+                </div>
+        </div>
+    </div>
+
+    <div class="row list_item_row" ng-show="regular_expenses_num > 0">
+        <div class="col-md-3"><span>Постоянные расходы</span></div>
+        <div class="col-md-9">
+                <div ng-repeat="payment in payments" class="row exsps_list_item" ng-show="payment.regular && payment.sum < 0">
+                    <div class="col-md-5">
+                        <span ng-show="payment.daily">Ежедневно</span>
+                        <span ng-show="payment.monthly">Раз в месяц по {{ payment.regular_date }} числам</span>
+                        <span ng-show="payment.weekly">Раз в неделю по {{ payment.week_day_name() }}</span>
+                    </div>
+                    <div class="col-md-3"><a href="javascript:void(0)" class="exsps_value pseudo" ng-bind="payment.sum" ng-click="modals.add.open(payment)"></a></div>
+                    <div class="col-md-3"><span class="label label-default exsps_label_{{ payment.label }}">{{ payment.name }}</span></div>
+                </div>
+        </div>
+    </div>
+
+
+    <div class="row list_item_row" ng-show="prefs.isSetWeekPrice">
+        <div><h4>Конверт</h4></div>
+    </div>
+    <div ng-repeat="item in dataTable">
+        <div  class="row exsps_list_item" ng-show="item.is_envelope">
+            <div class="col-md-5">{{item.date | date : "dd-MMM-yyyy" }}</div>
+            <div class="col-md-3"><a href="javascript:void(0)" class="exsps_value pseudo {{ item.uuid }}" ng-bind="(item.type == 'flow') ? '&minus;'+decimalsOutput(item.value) : '&plus;'+item.value " ng-click="modals.add.open(item.uuid)"></a></div>
+            <div class="col-md-3"><span class="exsps_value_name name">{{item.name}}</span></div>
+        </div>
+    </div>
+
+    <div class="row list_item_row" ng-show="prefs.FlowsOrdinary > 0">
+        <div class="col-md-3"><span>Разовые расходы</span></div>
+        <div class="col-md-9">
+            <div ng-repeat="item in dataTable" class="row exsps_list_item" ng-show="item.type == 'flow' && !item.is_regular">
+                <div class="col-md-5">
+                    <span>{{item.date | date : "d MMM yy" }}</span>
+                </div>
+                <div class="col-md-3"><a href="javascript:void(0)" class="exsps_value pseudo {{ item.uuid }}" ng-bind="(item.type == 'flow') ? '&minus;'+decimalsOutput(item.value) : '&plus;'+item.value " ng-click="modals.add.open(item.uuid)"></a></div>
+                <div class="col-md-3"><span class="label label-default exsps_label_{{item.itemLabel}}">{{item.name}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>

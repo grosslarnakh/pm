@@ -1,0 +1,11 @@
+<div ng-controller="noticeCtrl" class="notice_container">
+    <span ng-class="{notice: notice != null && notice.length > 1}">{{ notice }}</span>
+</div>
+<div ng-controller="homeCtrl" >
+    <div class="row">
+        <div ng-include="templates.toolbar"></div>
+        <div ng-include="templates.view_modes.tree"></div>
+        <div ng-include="templates.view_modes.table"></div>
+        <div ng-include="templates.view_modes.list"></div>
+    </div>
+</div>

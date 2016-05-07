@@ -1,0 +1,85 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" ng-click="cancel()" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 ng-show="!uuid" class="modal-title">Создание записи</h4>
+        <h4 ng-show="uuid" class="modal-title">Изменение записи</h4>
+    </div>
+
+    <div class="modal-body">
+
+        <!-- tabset class="payment_tabs">
+            <tab ng-repeat="tab in tabs" heading="{{ tab.heading }}" active="tab.active" class="payment_tab {{ tab.type }}_tab" ng-click="switchToTab(tab.type, tab.is_regular, tab.is_envelope)">
+        </tabset -->
+        <form class="form-horizontal" role="form" id="payment" onsubmit="return false;" ng-class="{ positive_payment: type == 'income', negative_payment: type == 'expense' }">
+            <div class="error" ng-bind="errorText" style="color:red"></div>
+            <div class="sum_input_block form-group">
+                <label for="sum" class="col-sm-2 control-label">Сумма</label>
+                <div class="col-sm-2" ng-class__="{ negative_value_keeper: type == 'expense' }">
+                    <input autocomplete="off" type="text" class="form-control" ng-class="{ negative_value_keeper: type == 'expense' }" id="sum" ng-model="sum_expression" ng-change="on_change_sum()" ng-keydown="sum_keydown($event)" select-on-focus />
+                    <ul class="sum_expression_suggestions" ng-if="sum_focused">
+                        <li ng-class="{ selected: expression_suggestion_selected }">{{ sum }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name"  class="col-sm-2 control-label">Название</label>
+                <div class="col-sm-4">
+                    <input type="text" id="name" ng-model="name" class="form-control" select-on-focus />
+                </div>
+            </div>
+
+            <div class="form-group regularity">
+                <input type="checkbox" id="is_regular" ng-model="is_regular">
+                <label for="is_regular" class="normal_label">Повторять регулярно</label>
+            </div>
+
+            <div class="form-group" ng-hide="is_regular">
+                <label for="date" class="col-sm-2 control-label">Дата</label>
+                <div class="col-sm-3">
+                    <p class="input-group">
+                    <input type="text" id="date" class="form-control" datepicker-popup="dd.MM.yyyy" datepicker-options="dateOptions" ng-model="date" is-open="opened"  ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="is_regular">
+                <label for="regular_period" class="col-sm-2 control-label">Период</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="regular_period" ng-model="regular_period" ng-change="on_change_period()">
+                        <option ng-repeat="period in prefs.regular_periods" ng-selected="{{ period.value == regular_period }}" ng-bind="period.name" value="{{ period.value }}"></option>
+                    </select>
+                    <span ng-hide="true">{{ getDays(regular_period) }}</span>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="is_regular && (regular_period == 'm1' || regular_period == 'w1')">
+                <label ng-show="is_regular && regular_period == 'w1'" for="regular_date" class="col-sm-2 control-label">по</label>
+                <label ng-show="is_regular && (regular_period == 'm1' || regular_period == 'w2' )" for="regular_date" class="col-sm-2 control-label">День</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-if="regular_period == 'm1'" id="regular_monthly_date" ng-model="regular_monthly_date" ng-options="day as day for day in monthly_days"></select>
+                    <select class="form-control" ng-if="regular_period == 'w1'" id="regular_weekly_date" ng-model="regular_weekly_date" ng-options="day as day.label for day in weekly_days"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="itemLabel" class="col-sm-2 control-label">Ярлык</label>
+                <div class="col-sm-10">
+                    <div id="itemLabel" class="btn-group">
+                        <label ng-repeat="item in prefs.labels" class="btn exsps_label exsps_label_{{item}}" ng-class="{active: item == prefs.itemLabel}" ng-model="prefs.itemLabel" btn-radio="{{'item'}}">&nbsp;</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" ng-click="appendItem()">
+                        <span>Сохранить</span>
+                    </button>
+                    <button class="btn btn-default" ng-click="cancel()">Отменить</button>
+                    <button class="btn btn-danger pull-right" ng-show="payment_not_null" ng-click="remove()">Удалить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
