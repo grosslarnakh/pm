@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('core').controller('StartValueController', ['$scope', '$rootScope', '$modalInstance',
+var startValueCtrl = ['$scope', '$rootScope', '$modalInstance',
   function($scope, $rootScope, $modalInstance) {
 
     $scope.t = $rootScope.prefs.startValue;
@@ -14,5 +12,4 @@ angular.module('core').controller('StartValueController', ['$scope', '$rootScope
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  }
-]);
+}];

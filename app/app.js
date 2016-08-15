@@ -15,6 +15,8 @@ requirejs([
     'app/controllers/notice_ctrl',
     'app/controllers/home_ctrl',
     'app/controllers/modals/add_ctrl',
+    'app/controllers/modals/startDate.client.controller',
+    'app/controllers/modals/startValue.client.controller',
     'app/models/weeks_provider',
     'app/models/week',
     'app/models/day',
@@ -33,6 +35,8 @@ requirejs([
     pm.controller('noticeCtrl', noticeCtrl);
     pm.controller('homeCtrl', homeCtrl);
     pm.controller('addCtrl', addCtrl);
+    pm.controller('StartDateController', startDateCtrl);
+    pm.controller('StartValueController', startValueCtrl);
     
     angular.element(document).ready(function() {
         angular.bootstrap(document, ['pm']);

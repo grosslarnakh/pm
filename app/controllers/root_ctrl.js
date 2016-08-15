@@ -224,7 +224,7 @@ var rootCtrl = ['$scope', '$rootScope', '$modal', '$http', '$interval', 'WeeksPr
     $rootScope.modals.weekPrice = {
         open: function() {
             var modalInstance = $modal.open({
-                templateUrl: prefpath + 'modules/core/views/modals/weekPrice.client.view.html',
+                templateUrl: prefpath + 'app/views/modals/weekPrice.client.view.html',
                 controller: 'WeekPriceController'
             });
 
@@ -238,7 +238,7 @@ var rootCtrl = ['$scope', '$rootScope', '$modal', '$http', '$interval', 'WeeksPr
     $rootScope.modals.startValue = {
         open: function() {
             var modalInstance = $modal.open({
-                templateUrl: prefpath + 'modules/core/views/modals/startValue.client.view.html',
+                templateUrl: prefpath + 'app/views/modals/startValue.client.view.html',
                 controller: 'StartValueController'
             });
         }
@@ -247,7 +247,7 @@ var rootCtrl = ['$scope', '$rootScope', '$modal', '$http', '$interval', 'WeeksPr
     $rootScope.modals.startDate = {
         open: function() {
             var modalInstance = $modal.open({
-                templateUrl: prefpath + 'modules/core/views/modals/startDate.client.view.html',
+                templateUrl: prefpath + 'app/views/modals/startDate.client.view.html',
                 controller: 'StartDateController'
             });
         }

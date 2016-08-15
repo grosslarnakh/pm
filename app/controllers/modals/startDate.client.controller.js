@@ -1,6 +1,6 @@
-'use strict';
+//'use strict';
 
-angular.module('core').controller('StartDateController', ['$scope', '$rootScope', '$modalInstance',
+var startDateCtrl = ['$scope', '$rootScope', '$modalInstance',
   function($scope, $rootScope, $modalInstance) {
 
     $scope.dt = $rootScope.prefs.startDate;
@@ -25,5 +25,4 @@ angular.module('core').controller('StartDateController', ['$scope', '$rootScope'
 
       $scope.dateOptions = $rootScope.prefs.dateOptions;
 
-  }
-]);
+}];
