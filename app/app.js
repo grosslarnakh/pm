@@ -38,8 +38,6 @@ function loadDependencies() {
         pm.controller('StartDateController', startDateCtrl);
         pm.controller('StartValueController', startValueCtrl);
 
-        console.log('!!');
-
         pm.directive('onScroll', function($window){
             return function(scope, element, attrs){
                 angular.element($window).bind('scroll', function(){
