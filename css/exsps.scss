@@ -396,10 +396,11 @@ form#payment {
     }
     &.fixed {
         filter:alpha(opacity=70);
+        margin: 0 auto;
         opacity:.7;
         position: fixed;
         top:5px;
-        width:95%;
+        width:82%;
         z-index:1;
     }
     & .toolbar_row {
