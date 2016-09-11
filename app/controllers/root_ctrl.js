@@ -2,14 +2,8 @@ var rootCtrl = ['$scope', '$rootScope', '$modal', '$http', '$interval', 'WeeksPr
 
     $rootScope.locale = 'ru';
 
-    $rootScope.tr = {
-        ru: {
-            create_entry: "Создать"
-        },
-        en: {
-            create_entry: "Create"
-        }
-    };
+    $rootScope.tr = tr;
+    $rootScope.l = tr[$rootScope.locale];
 
     //var modals = new Modals();
     $rootScope.payments = [];

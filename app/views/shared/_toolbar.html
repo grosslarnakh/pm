@@ -1,22 +1,22 @@
 <div id="toolbar" class="toolbar" ng-if="weeks.length > 0" ng-class="{ 'fixed' : fixed_toolbar, 'autosave_enabled' : autosave }">
     <div ng-include="templates.view_mode" class="toolbar_row col-md-2"></div>
     <div class="toolbar_row">
-        <button ng-click="modals.add.open()" class="btn btn-primary" style="width:100px;">{{ tr[locale].create_entry }}...</button>
+        <button ng-click="modals.add.open()" class="btn btn-primary" style="width:100px;">{{ l.toolbar.create_entry }}...</button>
     </div>
     <div class="toolbar_row export_block">
         <div id="export_block">
             <!-- button ng-click="exportJson()" class="btn" ng-if="items.length > 0">Экспортировать</button -->
             <div id="autosave_block">
-                <input id="autosave" type="checkbox" ng-change="changeAutosave(autosave)" ng-model="autosave"/> <label class="light_label" for="autosave" style="font-weight:normal;">Автосохранение</label>
+                <input id="autosave" type="checkbox" ng-change="changeAutosave(autosave)" ng-model="autosave"/> <label class="light_label" for="autosave" style="font-weight:normal;">{{ l.toolbar.autosave }}</label>
             </div>
             <div id="cleanup_block">
-                <button ng-show="storageDataIsNotEmpty()" ng-click="clearStorageData()" class="btn">Очистить</button>
+                <button ng-show="storageDataIsNotEmpty()" ng-click="clearStorageData()" class="btn">{{ l.toolbar.clear }}</button>
             </div>
         </div>
     </div>
 </div>
 <div id="locale_settings">
-    <select ng-model="locale">
+    <select ng-model="locale" ng-change="l = tr[locale]">
         <option value="ru" ng-selected="'ru' == locale">По-русски</option>
         <option value="en" ng-selected="'en' == locale">In English</option>
     </select>

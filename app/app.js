@@ -8,6 +8,8 @@ requirejs([prefpath + 'app/vendor.min.js'], function() {
     loadDependencies();
 });
 
+var tr = {};
+
 function loadDependencies() {
     requirejs([
         //'app/vendor.min',
@@ -21,7 +23,9 @@ function loadDependencies() {
         'app/models/week',
         'app/models/day',
         'app/models/payment',
-        'app/ui-bootstrap-tpls-0.11.2.min'
+        'app/ui-bootstrap-tpls-0.11.2.min',
+        'app/locale/en',
+        'app/locale/ru'
     ], function() {
         //require(['app/ui-bootstrap-tpls-0.11.2.min']);
         var pm = angular.module('pm', ['ngResource', 'ngAnimate', 'ui.router', 'ui.utils', 'ui.bootstrap', 'ui.bootstrap.modal', 'ui.bootstrap.tpls']);
