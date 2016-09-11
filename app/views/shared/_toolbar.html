@@ -1,7 +1,7 @@
 <div id="toolbar" class="toolbar" ng-if="weeks.length > 0" ng-class="{ 'fixed' : fixed_toolbar, 'autosave_enabled' : autosave }">
     <div ng-include="templates.view_mode" class="toolbar_row col-md-2"></div>
     <div class="toolbar_row">
-        <button ng-click="modals.add.open()" class="btn btn-primary">Создать запись...</button>
+        <button ng-click="modals.add.open()" class="btn btn-primary" style="width:100px;">{{ tr[locale].create_entry }}...</button>
     </div>
     <div class="toolbar_row export_block">
         <div id="export_block">
@@ -14,4 +14,10 @@
             </div>
         </div>
     </div>
+</div>
+<div id="locale_settings">
+    <select ng-model="locale">
+        <option value="ru" ng-selected="'ru' == locale">По-русски</option>
+        <option value="en" ng-selected="'en' == locale">In English</option>
+    </select>
 </div>

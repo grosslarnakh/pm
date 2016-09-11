@@ -1,4 +1,16 @@
 var rootCtrl = ['$scope', '$rootScope', '$modal', '$http', '$interval', 'WeeksProvider', 'Payment', function($scope, $rootScope, $modal, $http, $interval, WeeksProvider, Payment) {
+
+    $rootScope.locale = 'ru';
+
+    $rootScope.tr = {
+        ru: {
+            create_entry: "Создать"
+        },
+        en: {
+            create_entry: "Create"
+        }
+    };
+
     //var modals = new Modals();
     $rootScope.payments = [];
     $rootScope.yearsWeeks = {};
