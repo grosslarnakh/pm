@@ -1,4 +1,54 @@
 @import url(notice.css);
+.pointer {
+  cursor: pointer; }
+
+#toolbar, .toolbar {
+  background: #eee;
+  border-radius: 6px;
+  float: left;
+  height: 60px;
+  padding: 15px;
+  width: 100%; }
+  #toolbar.autosave_enabled, .toolbar.autosave_enabled {
+    background: #e8fff5; }
+  #toolbar.fixed, .toolbar.fixed {
+    filter: alpha(opacity=70);
+    margin: 0 auto;
+    opacity: .7;
+    position: fixed;
+    top: 5px;
+    width: 82%;
+    z-index: 1; }
+  #toolbar .toolbar_row, .toolbar .toolbar_row {
+    float: left; }
+    #toolbar .toolbar_row.export_block, .toolbar .toolbar_row.export_block {
+      float: right; }
+      #toolbar .toolbar_row.export_block #export_block, .toolbar .toolbar_row.export_block #export_block {
+        width: 240px; }
+        #toolbar .toolbar_row.export_block #export_block #autosave_block, .toolbar .toolbar_row.export_block #export_block #autosave_block {
+          float: left;
+          padding-top: 5px; }
+        #toolbar .toolbar_row.export_block #export_block #cleanup_block, .toolbar .toolbar_row.export_block #export_block #cleanup_block {
+          float: left;
+          padding-left: 10px;
+          width: 90px; }
+  #toolbar #manage_settings, .toolbar #manage_settings {
+    float: right;
+    position: relative;
+    width: 200px; }
+    #toolbar #manage_settings #show_settings, .toolbar #manage_settings #show_settings {
+      position: absolute;
+      right: 0;
+      top: 7px; }
+    #toolbar #manage_settings .settings, .toolbar #manage_settings .settings {
+      background: #fff;
+      border: 1px solid #ececec;
+      border-radius: 5px;
+      padding: 15px 10px;
+      position: absolute;
+      top: 20px;
+      width: 200px; }
+
 .modal {
   /*    background: #666;
       opacity:.6;
@@ -300,34 +350,3 @@ form#payment {
 
 .payment_tabs ul.nav {
   height: 48px; }
-
-#toolbar, .toolbar {
-  background: #eee;
-  border-radius: 6px;
-  float: left;
-  height: 60px;
-  padding: 15px;
-  width: 100%; }
-  #toolbar.autosave_enabled, .toolbar.autosave_enabled {
-    background: #e8fff5; }
-  #toolbar.fixed, .toolbar.fixed {
-    filter: alpha(opacity=70);
-    margin: 0 auto;
-    opacity: .7;
-    position: fixed;
-    top: 5px;
-    width: 82%;
-    z-index: 1; }
-  #toolbar .toolbar_row, .toolbar .toolbar_row {
-    float: left; }
-    #toolbar .toolbar_row.export_block, .toolbar .toolbar_row.export_block {
-      float: right; }
-      #toolbar .toolbar_row.export_block #export_block, .toolbar .toolbar_row.export_block #export_block {
-        width: 240px; }
-        #toolbar .toolbar_row.export_block #export_block #autosave_block, .toolbar .toolbar_row.export_block #export_block #autosave_block {
-          float: left;
-          padding-top: 5px; }
-        #toolbar .toolbar_row.export_block #export_block #cleanup_block, .toolbar .toolbar_row.export_block #export_block #cleanup_block {
-          float: left;
-          padding-left: 10px;
-          width: 90px; }

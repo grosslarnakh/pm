@@ -1,0 +1,59 @@
+#toolbar, .toolbar {
+    background: #eee;
+    border-radius: 6px;
+    float:left;
+    height:60px;
+    padding:15px;
+    width:100%;
+    &.autosave_enabled {
+      background:#e8fff5;
+    }
+    &.fixed {
+        filter:alpha(opacity=70);
+        margin: 0 auto;
+        opacity:.7;
+        position: fixed;
+        top:5px;
+        width:82%;
+        z-index:1;
+    }
+    & .toolbar_row {
+        float:left;
+        &.export_block {
+          float:right;
+          & #export_block {
+            width:240px;
+            & #autosave_block {
+              float:left;
+              padding-top:5px;
+            }
+            & #cleanup_block {
+              float:left;
+              padding-left:10px;
+              width:90px;
+            }
+          }
+        }
+    }
+
+  #manage_settings {
+    float:right;
+    position:relative;
+    width:200px;
+    #show_settings {
+      position: absolute;
+      right:0;
+      top:7px;
+    }
+
+    .settings {
+      background:#fff;
+      border:1px solid #ececec;
+      border-radius:5px;
+      padding:15px 10px;
+      position:absolute;
+      top:20px;
+      width:200px;
+    }
+  }
+}

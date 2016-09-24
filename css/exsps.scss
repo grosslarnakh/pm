@@ -1,3 +1,5 @@
+@import "base.scss";
+@import "toolbar.scss";
 @import "notice.css";
 @import "modal.scss";
 
@@ -382,43 +384,4 @@ form#payment {
 
 .payment_tabs ul.nav {
   height:48px;
-}
-
-#toolbar, .toolbar {
-    background: #eee;
-    border-radius: 6px;
-    float:left;
-    height:60px;
-    padding:15px;
-    width:100%;
-    &.autosave_enabled {
-      background:#e8fff5;
-    }
-    &.fixed {
-        filter:alpha(opacity=70);
-        margin: 0 auto;
-        opacity:.7;
-        position: fixed;
-        top:5px;
-        width:82%;
-        z-index:1;
-    }
-    & .toolbar_row {
-        float:left;
-        &.export_block {
-          float:right;
-          & #export_block {
-            width:240px;
-            & #autosave_block {
-              float:left;
-              padding-top:5px;
-            }
-            & #cleanup_block {
-              float:left;
-              padding-left:10px;
-              width:90px;
-            }
-          }
-        }
-    }
 }
