@@ -40,14 +40,32 @@
       position: absolute;
       right: 0;
       top: 7px; }
+      #toolbar #manage_settings #show_settings:hover, #toolbar #manage_settings #show_settings.active, .toolbar #manage_settings #show_settings:hover, .toolbar #manage_settings #show_settings.active {
+        opacity: .6; }
+      #toolbar #manage_settings #show_settings.active:hover, .toolbar #manage_settings #show_settings.active:hover {
+        opacity: 1; }
     #toolbar #manage_settings .settings, .toolbar #manage_settings .settings {
       background: #fff;
-      border: 1px solid #ececec;
+      border: 1px solid #fff;
       border-radius: 5px;
-      padding: 15px 10px;
+      box-shadow: 2px 2px 2px 2px #eee;
+      padding: 5px 10px 20px 10px;
       position: absolute;
-      top: 20px;
-      width: 200px; }
+      top: 30px;
+      width: 250px; }
+      #toolbar #manage_settings .settings .triangle_bridge, .toolbar #manage_settings .settings .triangle_bridge {
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 20px solid #fff;
+        height: 0;
+        position: absolute;
+        right: 41px;
+        top: -12px;
+        width: 0; }
+      #toolbar #manage_settings .settings .settings_block, .toolbar #manage_settings .settings .settings_block {
+        margin-top: 15px; }
+        #toolbar #manage_settings .settings .settings_block h5, .toolbar #manage_settings .settings .settings_block h5 {
+          font-weight: bolder; }
 
 .modal {
   /*    background: #666;

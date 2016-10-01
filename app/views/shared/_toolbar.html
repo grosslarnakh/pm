@@ -4,25 +4,35 @@
     </div>
 
     <div id="manage_settings">
-        <span id="show_settings" class="pointer glyphicon glyphicon-cog" ng-init="set_visible = false" ng-click="set_visible = set_visible ? false : true"></span>
+        <span id="show_settings" class="pointer glyphicon glyphicon-cog" ng-class="{active: set_visible}" ng-init="set_visible = false" ng-click="set_visible = set_visible ? false : true"></span>
         <div class="settings" ng-if="set_visible">
-            <div ng-include="templates.view_mode" class="" style="margin-bottom:10px;"></div>
-            <div class="export_block" style="margin-bottom:10px">
-                <div id="export_block">
-                    <!-- button ng-click="exportJson()" class="btn" ng-if="items.length > 0">Экспортировать</button -->
-                    <div id="autosave_block">
-                        <input id="autosave" type="checkbox" ng-change="changeAutosave(autosave)" ng-model="autosave"/> <label class="light_label" for="autosave" style="font-weight:normal;">{{ l.toolbar.autosave }}</label>
-                    </div>
-                    <div id="cleanup_block">
-                        <button ng-show="storageDataIsNotEmpty()" ng-click="clearStorageData()" class="btn">{{ l.toolbar.clear }}</button>
+            <div class="triangle_bridge"></div>
+            <div class="settings_block">
+                <h5>Вид</h5>
+                <div ng-include="templates.view_mode" class="" style="margin-bottom:10px;"></div>
+            </div>
+            <div class="settings_block">
+                <h5>Хранить записи в браузере</h5>
+                <div class="export_block" style="margin-bottom:10px">
+                    <div id="export_block">
+                        <!-- button ng-click="exportJson()" class="btn" ng-if="items.length > 0">Экспортировать</button -->
+                        <div id="autosave_block">
+                            <input id="autosave" type="checkbox" ng-change="changeAutosave(autosave)" ng-model="autosave"/> <label class="light_label" for="autosave" style="font-weight:normal;">{{ l.toolbar.autosave }}</label>
+                        </div>
+                        <div id="cleanup_block">
+                            <button ng-show="storageDataIsNotEmpty()" ng-click="clearStorageData()" class="btn">{{ l.toolbar.clear }}</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="locale_settings" class="">
-                <select ng-model="locale" ng-change="l = tr[locale]">
-                    <option value="ru" ng-selected="'ru' == locale">По-русски</option>
-                    <option value="en" ng-selected="'en' == locale">In English</option>
-                </select>
+            <div class="settings_block">
+                <h5>Язык</h5>
+                <div id="locale_settings" class="">
+                    <select ng-model="locale" ng-change="l = tr[locale]">
+                        <option value="ru" ng-selected="'ru' == locale">По-русски</option>
+                        <option value="en" ng-selected="'en' == locale">In English</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
