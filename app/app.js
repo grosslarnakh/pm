@@ -38,22 +38,34 @@ function loadDependencies() {
         pm.controller('StartDateController', startDateCtrl);
         pm.controller('StartValueController', startValueCtrl);
 
-        pm.directive('onScroll', function($window){
-            return function(scope, element, attrs){
-                angular.element($window).bind('scroll', function(){
-                    if(this.pageYOffset > 200) {
-                        scope.fixed_toolbar = true;
-                    }
-                    else {
-                        scope.fixed_toolbar = false;
-                    }
-                });
-            }
-        });
-        
         angular.element(document).ready(function() {
             angular.bootstrap(document, ['pm']);
         });
+        initOnScroll();
     });
 }
 
+function initOnScroll()
+{
+    setTimeout(function() {
+        var toolbar = document.getElementById('toolbar');
+        if(toolbar == null) {
+            return initOnScroll();
+
+        }
+
+        var toolbarOffset = toolbar.offsetTop;
+        document.addEventListener('scroll', function(e) {
+            if(window.pageYOffset >= toolbarOffset) {
+                if(!toolbar.classList.contains('fixed')) {
+                    toolbar.classList.add('fixed');
+                }
+            }
+            else {
+                if(toolbar.classList.contains('fixed')) {
+                    toolbar.classList.remove('fixed');
+                }
+            }
+        });
+    }, 1000);
+}

@@ -7,7 +7,6 @@ var rootCtrl = ['$scope', '$rootScope', '$modal', '$http', '$interval', 'WeeksPr
     $rootScope.regular_items = [];
     $rootScope.total_spending = 0;
     $rootScope.default_weeks_num = 16;
-    $scope.pref = 'fuck';
 
     if(typeof(prefpath) == 'undefined') {
         prefpath = '';
