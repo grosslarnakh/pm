@@ -55,6 +55,7 @@ function initOnScroll()
         }
 
         var toolbarOffset = toolbar.offsetTop;
+        toolbar.style.width = toolbar.offsetWidth + 'px';
         document.addEventListener('scroll', function(e) {
             if(window.pageYOffset >= toolbarOffset) {
                 if(!toolbar.classList.contains('fixed')) {
