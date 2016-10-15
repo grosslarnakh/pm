@@ -4,7 +4,7 @@
     </div>
 
     <div id="manage_settings">
-        <span id="show_settings" class="pointer glyphicon glyphicon-cog" ng-class="{active: set_visible}" ng-init="set_visible = false" ng-click="set_visible = set_visible ? false : true"></span>
+        <button id="show_settings" class="btn btn-default btn-xs pointer glyphicon glyphicon-cog" ng-class="{active: set_visible}" ng-init="set_visible = false" ng-click="set_visible = set_visible ? false : true"></button>
         <div class="settings" ng-if="set_visible">
             <div class="triangle_bridge"></div>
             <div class="settings_block">
